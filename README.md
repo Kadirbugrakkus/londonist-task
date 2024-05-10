@@ -70,4 +70,10 @@ MAIL_PASSWORD=6698dabde52b3c
 MAIL_ENCRYPTION=tls
 ```
 
+### Not: Rol Bazlı Yetkilendirme
+
+#### - Proje içerisinde 2 farklı rol bulunmaktadır: Admin ve User. Admin rolüne sahip kullanıcılar, tüm işlemleri yapabilirken, User rolüne sahip kullanıcılar sadece kendi işlemlerini yapabilirler.
+#### - Rol ve yetkilendirme işlemleri için Laravel'in yetenekli yetkilendirme kütüphanesi olan Spatie kullanılmıştır. Daha fazla bilgi için [Spatie](https://spatie.be/docs/laravel-permission/v5/introduction) dokümantasyonunu inceleyebilirsiniz.
+#### - Rol ve yetkilendirme işlemi seedler aracılığıyla yapılmıştır.
+
 
