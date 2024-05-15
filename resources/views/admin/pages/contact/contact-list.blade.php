@@ -88,6 +88,11 @@
                 id: contactId
             }, {
                 withCredentials: true,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + '{{ auth()->user()->api_token }}'
+                }
             })
                 .then(function (response) {
                     if (response.data.error) {
@@ -116,55 +121,5 @@
                     });
                 });
         });
-        // document.querySelectorAll('.sendApiRequest').addEventListener('click', function (event) {
-        //     event.preventDefault();
-        //     alert('test')
-        //     const contactId = event.target.getAttribute('data-id');
-        //     const contactEmail = event.target.getAttribute('data-email');
-        //
-        //     console.log(event.target)
-        //     console.log(contactId, contactEmail)
-        //     if (!contactEmail || contactEmail === 0) {
-        //         Swal.fire({
-        //             title: 'Hata!',
-        //             text: 'Geçerli bir e-posta adresi bulunamadı.',
-        //             icon: 'error',
-        //             confirmButtonText: 'Tamam'
-        //         });
-        //         return;
-        //     }
-        //
-        //     axios.post('/api/send-email', {
-        //         id: contactId
-        //     }, {
-        //         withCredentials: true,
-        //     })
-        //         .then(function (response) {
-        //             if (response.data.error) {
-        //                 Swal.fire({
-        //                     title: 'Hata!',
-        //                     text: response.data.error,
-        //                     icon: 'error',
-        //                     confirmButtonText: 'Tamam'
-        //                 });
-        //             } else {
-        //                 Swal.fire({
-        //                     title: 'Başarılı!',
-        //                     text: 'E-posta başarıyla gönderildi.',
-        //                     icon: 'success',
-        //                     confirmButtonText: 'Tamam'
-        //                 });
-        //             }
-        //         })
-        //         .catch(function (error) {
-        //             console.error('Error:', error);
-        //             Swal.fire({
-        //                 title: 'Hata!',
-        //                 text: 'E-posta gönderilirken bir hata oluştu.',
-        //                 icon: 'error',
-        //                 confirmButtonText: 'Tamam'
-        //             });
-        //         });
-        // });
     </script>
 @endpush

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -20,6 +21,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123456'),
         ]);
         $adminUser->assignRole('admin');
+        $adminUser->generateApiToken();
 
         $user = User::factory()->create([
             'name' => 'User',
@@ -27,6 +29,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123456'),
         ]);
         $user->assignRole('user');
+        $user->generateApiToken();
 
         $user2 = User::factory()->create([
             'name' => 'User2',
@@ -34,5 +37,6 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123456'),
         ]);
         $user2->assignRole('user');
+        $user2->generateApiToken();
     }
 }
